@@ -50,8 +50,9 @@ int main(int argc, char** argv){
     }
 
     movieFile.close();
-
-    printMovies(movies);
+    if (argc < 3){
+        printMovies(movies);
+    }
 
     ifstream prefixFile (argv[2]);
 
