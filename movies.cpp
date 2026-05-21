@@ -40,7 +40,7 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
         printMoviesDecreasing(hasPre);
 
         if (hasPre.empty()){
-            cout << "No movies found with prefix " << prefixes[i];
+            cout << "No movies found with prefix " << prefixes[i] << endl;
         }
         else {
             cout << "Best movie with prefix " << prefixes[i] << " is: " << bestName << " with the rating " << bestRating << endl;
