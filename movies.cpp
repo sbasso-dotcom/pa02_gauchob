@@ -52,10 +52,13 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
             if (bestRating.substr(0,2) == "10"){
                 bestRating = "10";
             }
+            else if (bestRating.substr(0,1) == "0"){
+                bestRating = "0";
+            }
             else {
                 bestRating = bestRating.substr(0,3);
             }
-            if (!bestName.empty() && bestRating != "0"){
+            if (!bestName.empty()){
                 bestResults.push_back("Best movie with prefix " + prefixes[i] + " is: " + bestName + " with rating " + bestRating + "\n");
             }
         }
