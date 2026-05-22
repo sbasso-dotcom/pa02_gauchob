@@ -1,5 +1,6 @@
 #include "movies.h"
-
+#include <iomanip>
+#include <sstream>
 
 
 void printMovies(map<string, float> movies){
@@ -29,11 +30,11 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
     for (int i = 0; i < prefixes.size(); i ++){
         hasPre.clear();
         string bestName = "";
-        string bestRating = "0";
+        float bestRating = 0;
         for (auto it = movies.begin(); it != movies.end();it++){
             if(it->first.substr(0,prefixes[i].length()) == prefixes[i]){
-                if (it->second > stof(bestRating)){
-                    bestRating = to_string(it->second);
+                if (it->second > bestRating){
+                    bestRating = it->second;
                     if (!it->first.empty()){
                         bestName = it->first;
                     }
@@ -49,17 +50,12 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
             if (!hasPre.empty()){
                 printMoviesDecreasing(hasPre);
             }
-            if (bestRating.substr(0,2) == "10"){
-                bestRating = "10";
-            }
-            else if (bestRating.substr(0,1) == "0"){
-                bestRating = "0";
-            }
-            else {
-                bestRating = bestRating.substr(0,3);
-            }
+
             if (!bestName.empty()){
-                bestResults.push_back("Best movie with prefix " + prefixes[i] + " is: " + bestName + " with rating " + bestRating + "\n");
+                stringstream ss;
+                ss << fixed << setprecision(2) << bestRating;
+                string r = ss.str();
+                bestResults.push_back("Best movie with prefix " + prefixes[i] + " is: " + bestName + " with rating " + r + "\n");
             }
         }
     }
