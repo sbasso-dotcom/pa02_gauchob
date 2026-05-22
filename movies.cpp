@@ -30,7 +30,7 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
     for (int i = 0; i < prefixes.size(); i ++){
         hasPre.clear();
         string bestName = "";
-        float bestRating = 0;
+        float bestRating = -1;
         for (auto it = movies.begin(); it != movies.end();it++){
             if(it->first.substr(0,prefixes[i].length()) == prefixes[i]){
                 if (it->second > bestRating){
