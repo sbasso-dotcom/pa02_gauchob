@@ -43,10 +43,12 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
         }
 
         if (hasPre.empty()){
-            cout << "No movies found with prefix " << prefixes[i] << "\n" << endl;
+            cout << "No movies found with prefix " << prefixes[i] << endl;
         }
         else {
-            printMoviesDecreasing(hasPre);
+            if (!hasPre.empty()){
+                printMoviesDecreasing(hasPre);
+            }
             if (bestRating.substr(0,2) == "10"){
                 bestRating = "10";
             }
@@ -54,7 +56,7 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
                 bestRating = bestRating.substr(0,3);
             }
             if (!bestName.empty()){
-                bestResults.push_back("\nBest movie with prefix " + prefixes[i] + " is: " + bestName + " with rating " + bestRating);
+                bestResults.push_back("Best movie with prefix " + prefixes[i] + " is: " + bestName + " with rating " + bestRating + "\n");
             }
         }
     }
