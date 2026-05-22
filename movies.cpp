@@ -53,7 +53,7 @@ void checkPrefixes(vector<string> prefixes, map<string, float> movies){
 
             if (!bestName.empty()){
                 stringstream ss;
-                ss << fixed << setprecision(2) << bestRating;
+                ss  << setprecision(2) << bestRating;
                 string r = ss.str();
                 bestResults.push_back("Best movie with prefix " + prefixes[i] + " is: " + bestName + " with rating " + r + "\n");
             }
